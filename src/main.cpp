@@ -1,20 +1,20 @@
 #include <iostream>
 #include <string>
 #include <algorithm>
-#include "ThemeTree.h"
+#include "themeMaster.h"
 
 // Convert user string to enum mode
-themeTree::SortMode parseSortMode(std::string arg) {
+themeMaster::SortMode parseSortMode(std::string arg) {
     std::transform(arg.begin(), arg.end(), arg.begin(), ::tolower);
 
-    if (arg == "hybrid")    return themeTree::SortMode::HYBRID;
-    if (arg == "dominance") return themeTree::SortMode::DOMINANCE;
-    if (arg == "lightness") return themeTree::SortMode::LIGHTNESS;
-    if (arg == "chroma")    return themeTree::SortMode::CHROMA;
-    if (arg == "hue")       return themeTree::SortMode::HUE;
+    if (arg == "hybrid")    return themeMaster::SortMode::HYBRID;
+    if (arg == "dominance") return themeMaster::SortMode::DOMINANCE;
+    if (arg == "lightness") return themeMaster::SortMode::LIGHTNESS;
+    if (arg == "chroma")    return themeMaster::SortMode::CHROMA;
+    if (arg == "hue")       return themeMaster::SortMode::HUE;
 
     std::cerr << "[!] Unknown sort mode '" << arg << "'. Defaulting to 'hybrid'.\n";
-    return themeTree::SortMode::HYBRID;
+    return themeMaster::SortMode::HYBRID;
 }
 
 void printUsage(const char* progName) {
@@ -40,7 +40,7 @@ int main(int argc, char* argv[]) {
     std::string cssPath   = argv[2];
     std::string jsonPath  = argv[3];
 
-    themeTree::SortMode sortMode = themeTree::SortMode::HYBRID; // Default strategy
+    themeMaster::SortMode sortMode = themeMaster::SortMode::HYBRID; // Default strategy
 
     // Parse optional flags
     for (int i = 4; i < argc; ++i) {
@@ -63,7 +63,7 @@ int main(int argc, char* argv[]) {
     }
 
     // Pipeline Execution
-    themeTree engine;
+    themeMaster engine;
 
     if (!engine.loadImage(imagePath)) {
         std::cerr << "Failed to load image: " << imagePath << "\n";

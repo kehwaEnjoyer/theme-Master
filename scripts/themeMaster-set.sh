@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 if [[ -z "$1" ]]; then
-    echo "Usage: themeTree-set.sh /path/to/wallpaper.png"
+    echo "Usage: themeMaster-set.sh /path/to/wallpaper.png"
     exit 1
 fi
 
@@ -9,8 +9,8 @@ WALLPAPER="$(realpath "$1")"
 filename=$(basename -- "$WALLPAPER")
 name="${filename%.*}"
 
-WALL_CACHE_DIR="${HOME}/.config/themeTree/themeTreePalettes/palettes/${name}"
-ACTIVE_DIR="${HOME}/.config/themeTree/active"
+WALL_CACHE_DIR="${HOME}/.config/themeMaster/themeMasterPalettes/palettes/${name}"
+ACTIVE_DIR="${HOME}/.config/themeMaster/active"
 
 mkdir -p ${ACTIVE_DIR}
 
@@ -19,7 +19,7 @@ if [[ ! -d "$WALL_CACHE_DIR" ]]; then
     exit 1
 fi
 
-# 1. Symlink every pre-rendered template output to ~/.cache/themeTree/active/
+# 1. Symlink every pre-rendered template output to ~/.cache/themeMaster/active/
 for generated_file in "${WALL_CACHE_DIR}"/*; do
     [[ -f "$generated_file" ]] || continue
     fname=$(basename -- "$generated_file")

@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.16)
-project(ThemeTree VERSION 1.0.0 LANGUAGES CXX)
+project(ThemeMaster VERSION 1.0.0 LANGUAGES CXX)
 
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
@@ -30,12 +30,12 @@ set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_SOURCE_DIR}/bin)
 file(GLOB SOURCES "src/*.cpp")
 
 # Build target
-add_executable(themeTree ${SOURCES})
+add_executable(themeMaster ${SOURCES})
 
 # Link libraries
-target_link_libraries(themeTree PRIVATE Eigen3::Eigen OpenMP::OpenMP_CXX)
+target_link_libraries(themeMaster PRIVATE Eigen3::Eigen OpenMP::OpenMP_CXX)
 
 # Enable compiler warnings
 if(NOT MSVC)
-    target_compile_options(themeTree PRIVATE -Wall -Wextra -Wpedantic)
+    target_compile_options(themeMaster PRIVATE -Wall -Wextra -Wpedantic)
 endif()

@@ -5,15 +5,15 @@
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 PROJECT_ROOT="$(cd "${SCRIPT_DIR}/.." && pwd)"
 
-# Resolve themeTree executable location
-if [[ -n "$THEMETREE_BIN" && -x "$THEMETREE_BIN" ]]; then
-    THEMETREE_EXEC="$THEMETREE_BIN"
-elif [[ -x "${PROJECT_ROOT}/bin/themeTree" ]]; then
-    THEMETREE_EXEC="${PROJECT_ROOT}/bin/themeTree"
-elif command -v themeTree &>/dev/null; then
-    THEMETREE_EXEC="$(command -v themeTree)"
+# Resolve themeMasster executable location
+if [[ -n "$THEMEMasster_BIN" && -x "$THEMEMasster_BIN" ]]; then
+    THEMEMasster_EXEC="$THEMEMasster_BIN"
+elif [[ -x "${PROJECT_ROOT}/bin/themeMasster" ]]; then
+    THEMEMasster_EXEC="${PROJECT_ROOT}/bin/themeMasster"
+elif command -v themeMasster &>/dev/null; then
+    THEMEMasster_EXEC="$(command -v themeMasster)"
 else
-    echo "[Error] 'themeTree' executable not found in ${PROJECT_ROOT}/bin/ or PATH."
+    echo "[Error] 'themeMasster' executable not found in ${PROJECT_ROOT}/bin/ or PATH."
     exit 1
 fi
 
@@ -26,8 +26,8 @@ for cmd in jq inotifywait; do
 done
 
 WALLPAPER_DIR="${HOME}/Wallpapers"
-TEMPLATE_DIR="${HOME}/.config/themeTree/themeTreePalettes/templates"
-CACHE_DIR="${HOME}/.config/themeTree/themeTreePalettes/palettes"
+TEMPLATE_DIR="${HOME}/.config/themeMasster/themeMassterPalettes/templates"
+CACHE_DIR="${HOME}/.config/themeMasster/themeMassterPalettes/palettes"
 
 mkdir -p "$CACHE_DIR" "$TEMPLATE_DIR"
 
@@ -113,7 +113,7 @@ process_wallpaper() {
     # Run C++ engine if needed
     if [[ "$run_engine" == true ]]; then
         echo "[ThemeCache] Extracting palette for: ${filename}"
-        "$THEMETREE_EXEC" "$img" "${wall_cache_dir}/colors.css" "$json_out" --sort=hybrid
+        "$THEMEMasster_EXEC" "$img" "${wall_cache_dir}/colors.css" "$json_out" --sort=hybrid
     fi
 
     # Run template renderer if needed

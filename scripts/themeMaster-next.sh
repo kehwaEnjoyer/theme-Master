@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 WALLPAPER_DIR="${HOME}/Wallpapers"
-STATE_FILE="${HOME}/.config/themeTree/lastWallpaper"
+STATE_FILE="${HOME}/.config/themeMaster/lastWallpaper"
 
 mkdir -p "$(dirname "$STATE_FILE")"
 
@@ -44,5 +44,5 @@ fi
 
 echo "$NEXT_WALL" > "$STATE_FILE"
 
-# Hand off to themeTree-set.sh
-themeTree-set "$NEXT_WALL"
+# Hand off to themeMaster-set.sh
+themeMaster-set "$NEXT_WALL"

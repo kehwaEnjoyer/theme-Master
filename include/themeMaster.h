@@ -14,7 +14,7 @@
 #define STB_IMAGE_IMPLEMENTATION
 #include "stb_image.h"
 
-class themeTree {
+class themeMaster {
 
 public:
     
