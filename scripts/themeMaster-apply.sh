@@ -1,4 +1,6 @@
 # . Reload Desktop Components
+ACTIVE_DIR="${HOME}/.config/themeMaster/active"
+
 hyprctl reload &>/dev/null
 killall -SIGUSR1 waybar 2>/dev/null
 # Push live color changes across all open Kitty terminal windows

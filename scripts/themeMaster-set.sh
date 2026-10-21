@@ -36,9 +36,6 @@ if command -v hyprpaper &>/dev/null; then
 fi
 
 # 3. Reload Desktop Components
-hyprctl reload &>/dev/null
-killall -SIGUSR1 waybar 2>/dev/null
-# Push live color changes across all open Kitty terminal windows
-kitty @ set-colors -a "${ACTIVE_DIR}/kitty.conf" 2>/dev/null || killall -SIGUSR1 kitty 2>/dev/null
+themeMasster-apply 
 
 echo "[SetTheme] Successfully switched to ${filename}"
