@@ -10,6 +10,7 @@ echo "==> Setting executable permissions..."
 chmod +x "${PROJECT_ROOT}/scripts/themeMasterDaemon.sh"
 chmod +x "${PROJECT_ROOT}/scripts/themeMaster-set.sh"
 chmod +x "${PROJECT_ROOT}/scripts/themeMaster-next.sh"
+chmod +x "${PROJECT_ROOT}/scripts/themeMaster-apply.sh"
 if [[ -f "${PROJECT_ROOT}/bin/themeMaster" ]]; then
     chmod +x "${PROJECT_ROOT}/bin/themeMaster"
 fi
@@ -28,6 +29,7 @@ fi
 ln -sf "${PROJECT_ROOT}/scripts/themeMasterDaemon.sh" "${BIN_DIR}/themeMasterdaemon"
 ln -sf "${PROJECT_ROOT}/scripts/themeMaster-set.sh" "${BIN_DIR}/themeMaster-set"
 ln -sf "${PROJECT_ROOT}/scripts/themeMaster-next.sh"   "${BIN_DIR}/themeMaster-next"
+ln -sf "${PROJECT_ROOT}/scripts/themeMaster-apply.sh"   "${BIN_DIR}/themeMaster-apply"
 
 echo "==> Updating PATH in ${BASHRC}..."
 
@@ -42,3 +44,4 @@ echo "==> Setup complete!"
 echo "    - C++ Engine:  'themeMaster'"
 echo "    - Daemon:      'themeMasterdaemon'"
 echo "    - Switcher:    'themeMaster-set'"
+echo "    - Applier:    'themeMaster-apply'"
